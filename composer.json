@@ -1,0 +1,13 @@
+{
+    "name": "mikebernal/consoleapp",
+    "description": "PHP console app using symfony console and doctrine dbal",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "require": {
+        "symfony/console": "^5.2",
+        "doctrine/dbal": "^3.0"
+    }
+}
