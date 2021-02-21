@@ -16,6 +16,8 @@ see commands below
 -  help   - Displays help for a command
 -  list   - Lists commands
 -  query-posts  - Display posts in a table format
+-  edit-post    - edit post data from the database
+-  published    - Fetch all post that are published only
 -  write-post   - Insert new post data to the database
 -  delete-post  - Delete post data from the database
 

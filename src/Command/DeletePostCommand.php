@@ -9,8 +9,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Doctrine\DBAL\DriverManager;
 
+/**
+ * DeletePostCommand class
+ * 
+ * delete post row from the post table
+ */
 class DeletePostCommand extends Command
 {
+    /**
+     * configure function
+     *
+     * @return void
+     */
     protected function configure()
     {
         $this->setName('delete-post')
@@ -18,6 +28,13 @@ class DeletePostCommand extends Command
             ->setHelp('delete post using doctrine dbal');
     }
 
+    /**
+     * execute function
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return statuscode
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Initialization
@@ -48,6 +65,5 @@ class DeletePostCommand extends Command
         }
 
         return Command::SUCCESS;
-
     }
 }

@@ -11,8 +11,16 @@ use Doctrine\DBAL\DriverManager;
 
 require_once __DIR__ . '/../helpers.php';
 
+/**
+ * UpdatePostCommand class
+ */
 class UpdatePostCommand extends Command
 {
+    /**
+     * configure function
+     *
+     * @return void
+     */
     protected function configure()
     {
         $this->setName('edit-post')
@@ -20,6 +28,13 @@ class UpdatePostCommand extends Command
             ->setHelp('edit post using doctrine dbal');
     }
 
+    /**
+     * execute function
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return statuscode
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Initialization
@@ -99,6 +114,5 @@ class UpdatePostCommand extends Command
         }
 
         return Command::SUCCESS;
-
     }
 }

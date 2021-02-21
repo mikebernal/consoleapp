@@ -12,11 +12,11 @@ use Doctrine\DBAL\DriverManager;
 require_once __DIR__ . '/../helpers.php';
 
 /**
- * QueryPostsCommand class
+ * QueryPublishedCommand class
  * 
  * Fetch all post rows from the database
  */
-class QueryPostsCommand extends Command
+class QueryPublishedCommand extends Command
 {
     /**
      * configure function
@@ -25,8 +25,8 @@ class QueryPostsCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('query-post')
-            ->setDescription('Fetch all rows from post table')
+        $this->setName('published')
+            ->setDescription('Fetch all post that are published only')
             ->setHelp('This command use the Doctrine DBAL API to request data from MySQL');
     }
 
@@ -57,14 +57,14 @@ class QueryPostsCommand extends Command
         $db = DriverManager::getConnection($params);
 
         // Queries
-        $posts       = $db->query("SELECT * FROM post");
-        $idsQ        = $db->query("SELECT id FROM post");
-        $titlesQ     = $db->query("SELECT title FROM post");
-        $bodyQ       = $db->query("SELECT body FROM post");
-        $authorQ     = $db->query("SELECT author FROM post");
-        $publlishedQ = $db->query("SELECT published FROM post");
-        $createdAtQ  = $db->query("SELECT created_at FROM post");
-        $rowCountQ   = $db->query("SELECT COUNT(*) as COUNT FROM post");
+        $posts       = $db->executeQuery("SELECT * FROM post WHERE published = ?", array(1));
+        $idsQ        = $db->executeQuery("SELECT id FROM post WHERE published = ?", array(1));
+        $titlesQ     = $db->executeQuery("SELECT title FROM post WHERE published = ?", array(1));
+        $bodyQ       = $db->executeQuery("SELECT body FROM post WHERE published = ?", array(1));
+        $authorQ     = $db->executeQuery("SELECT author FROM post WHERE published = ?", array(1));
+        $publlishedQ = $db->executeQuery("SELECT published FROM post WHERE published = ?", array(1));
+        $createdAtQ  = $db->executeQuery("SELECT created_at FROM post WHERE published = ?", array(1));
+        $rowCountQ   = $db->executeQuery("SELECT COUNT(*) as COUNT FROM post WHERE published = ?", array(1));
 
         $columns = $db->query("SHOW COLUMNS FROM post");
 

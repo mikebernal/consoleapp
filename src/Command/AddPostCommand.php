@@ -11,8 +11,19 @@ use Doctrine\DBAL\DriverManager;
 
 require_once __DIR__ . '/../helpers.php';
 
+/**
+ * AddPostCommand class
+ * 
+ * Add post row to post row table
+ */
 class AddPostCommand extends Command
 {
+
+    /**
+     * configure function
+     *
+     * @return void
+     */
     protected function configure()
     {
         $this->setName('add-post')
@@ -20,6 +31,13 @@ class AddPostCommand extends Command
             ->setHelp('write post using doctrine dbal');
     }
 
+    /**
+     * execute function
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return statuscode
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Initialization
@@ -89,7 +107,6 @@ class AddPostCommand extends Command
             $outout->writeln('Please check your query');
             return Command::FAILURE;
         }
-
 
         return Command::SUCCESS;
     }
