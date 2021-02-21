@@ -44,7 +44,7 @@ class DeletePostCommand extends Command
         if ($db->delete('post', array('id' => $postId))) {
             $output->writeln($title[0] . ' has been added deleted.');
         } else {
-            Command::FAILURE;
+            return Command::FAILURE;
         }
 
         return Command::SUCCESS;

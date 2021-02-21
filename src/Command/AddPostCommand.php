@@ -81,13 +81,13 @@ class AddPostCommand extends Command
             'title' => $title,
             'body' => $body,
             'author' => $author,
-            'published' => $published 
+            'published' => $bool 
         ))) {
             // Success message
             $output->writeln($title . ' has been added successfully.');
         } else {
             $outout->writeln('Please check your query');
-            Command::FAILURE;
+            return Command::FAILURE;
         }
 
 
