@@ -12,7 +12,6 @@
 see commands below
 
 ## Available commands:
--  ask    - Interactively asks name from the user
 -  help   - Displays help for a command
 -  list   - Lists commands
 -  query-posts  - Display posts in a table format
